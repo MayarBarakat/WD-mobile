@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_fab_margin">16dp</dimen>
+    <dimen name="download_appbar_height">250dp</dimen>
+    <dimen name="download_coll_expanded_end">26dp</dimen>
+    <dimen name="download_coll_expanded_start">10dp</dimen>
+    <dimen name="download_linear_hor_margin">16dp</dimen>
+    <dimen name="download_link_padding">16dp</dimen>
+    <dimen name="download_link_bottom_padding">20dp</dimen>
+    <dimen name="download_linear_padding">16dp</dimen>
+    <dimen name="folder_iv_height">200dp</dimen>
+    <dimen name="folder_tv_padding">16dp</dimen>
+    <dimen name="folder_tv_text_size">18sp</dimen>
+    <dimen name="folder_linear_padding">20dp</dimen>
+    <dimen name="fragment_linear_padding">20dp</dimen>
+    <dimen name="fragment_tv_text_size">30sp</dimen>
+    <dimen name="fragment_pb_height">20dp</dimen>
+    <dimen name="fragment_tv_margin_bottom">16dp</dimen>
+</resources>

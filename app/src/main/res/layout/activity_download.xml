@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".DownloadActivity">
+    
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+      <LinearLayout
+          android:id="@+id/download_linear"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#f2f2f2"
+          android:orientation="vertical"
+          android:gravity="center"
+          android:padding="@dimen/fragment_linear_padding"
+          android:visibility="gone">
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/download_tv_info"
+              android:textSize="@dimen/fragment_tv_text_size"
+              android:layout_marginBottom="@dimen/fragment_tv_margin_bottom"
+              android:gravity="center" />
+          <ProgressBar
+              android:id="@+id/download_pb_download"
+              style="?android:attr/progressBarStyleHorizontal"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/fragment_pb_height" />
+<!--          <Button-->
+<!--              android:id="@+id/download_btn_done"-->
+<!--              android:layout_width="match_parent"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:background="@drawable/btn_download"-->
+<!--              android:text="done"-->
+<!--              android:layout_marginTop="30dp"/>-->
+      </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/download_linear_hor_margin"
+            android:weightSum="1"
+            android:padding="@dimen/download_linear_padding">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:errorTextColor="@color/colorAccent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/download_et_firstURL"
+                    android:hint="@string/download_et_url1"
+                    android:tooltipText="Name"
+                    tools:targetApi="o"
+                    android:inputType="textUri"
+                    android:drawableLeft="@drawable/link"
+                    android:drawablePadding="@dimen/download_link_padding"
+                    android:paddingBottom="@dimen/download_link_bottom_padding"
+                    android:gravity="center_vertical"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/download_btn_download"
+                android:text="@string/download_btn_download"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_download"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/download_btn_test"
+                android:layout_margin="10dp"
+                android:text="done"
+                android:visibility="gone"
+                android:background="@drawable/btn_download"/>
+        
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/download_appbar_height"
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleMarginEnd="@dimen/download_coll_expanded_end"
+            app:expandedTitleMarginStart="@dimen/download_coll_expanded_start"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:id="@+id/download_toolbar"
+                app:layout_collapseMode="pin"/>
+        
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

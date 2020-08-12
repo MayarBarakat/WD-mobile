@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WD mobile</string>
+    <string name="download_et_url1">URL 1</string>
+    <string name="download_btn_download">download</string>
+    <string name="download_et_url2">URL 2</string>
+    <string name="download_et_url3">URL 3</string>
+    <string name="download_et_url4">URL 4</string>
+    <string name="download_et_url5">URL 5</string>
+    
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank
+        fragment
+    </string>
+    <string name="main_menu_search">search</string>
+</resources>

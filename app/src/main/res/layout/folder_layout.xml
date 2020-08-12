@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/folder_linear_padding">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/folder_iv_height"
+        android:id="@+id/folder_iv"
+        android:src="@drawable/folder"
+        android:scaleType="centerInside"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/folder_tv_name"
+        android:padding="@dimen/folder_tv_padding"
+        android:textSize="@dimen/folder_tv_text_size"
+        android:text="Mayar"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/folder_tv_date"
+        android:padding="@dimen/folder_tv_padding"
+        android:textSize="@dimen/folder_tv_text_size"
+        android:text="2020"
+        android:gravity="center"/>
+</LinearLayout>
