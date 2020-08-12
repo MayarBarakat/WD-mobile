@@ -150,47 +150,48 @@ startActivityForResult(intent,DOWNLOAD_REQ_CODE);
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==DOWNLOAD_REQ_CODE) {
-            ArrayList<Folder>folderDownloaded=new ArrayList<>();
-            File f=new File(getFilesDir(),"WD");
-            if (!(f.exists())){
+        if (data != null) {
+            if (requestCode == DOWNLOAD_REQ_CODE) {
+                ArrayList<Folder> folderDownloaded = new ArrayList<>();
+                File f = new File(getFilesDir(), "WD");
+                if (!(f.exists())) {
+                    try {
+                        f.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 try {
-                    f.createNewFile();
+
+                    FileInputStream readData = new FileInputStream(f);
+                    ObjectInputStream readStream = new ObjectInputStream(readData);
+
+                    folderDownloaded = (ArrayList<Folder>) readStream.readObject();
+                    folderDownloaded.add((Folder) Objects.requireNonNull(data).getSerializableExtra("send"));
+                    readStream.close();
+
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    FileOutputStream writeData = new FileOutputStream(f);
+                    ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
+
+                    writeStream.writeObject(folderDownloaded);
+                    writeStream.flush();
+                    writeStream.close();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                adapter.setFolders(folderDownloaded);
+                adapter.notifyDataSetChanged();
             }
-
-            try{
-
-                FileInputStream readData = new FileInputStream(f);
-                ObjectInputStream readStream = new ObjectInputStream(readData);
-
-                folderDownloaded = (ArrayList<Folder>) readStream.readObject();
-                folderDownloaded.add((Folder) Objects.requireNonNull(data).getSerializableExtra("send"));
-                readStream.close();
-
-            }catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            try{
-                FileOutputStream writeData = new FileOutputStream(f);
-                ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
-
-                writeStream.writeObject(folderDownloaded);
-                writeStream.flush();
-                writeStream.close();
-
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            adapter.setFolders(folderDownloaded);
-            adapter.notifyDataSetChanged();
         }
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
